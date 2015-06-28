@@ -20,7 +20,7 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/compute-io/sqrt.git"
+    "url": "git://github.com/compute-io/log.git"
   },
   "keywords": [
     "compute.io",
@@ -45,7 +45,7 @@
     "deepset"
   ],
   "bugs": {
-    "url": "https://github.com/compute-io/sqrt/issues"
+    "url": "https://github.com/compute-io/log/issues"
   },
   "dependencies": {
     "compute-array-constructors": "^1.0.0",
