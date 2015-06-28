@@ -1,13 +1,13 @@
-Square Root
+Natural Logarithm
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes an element-wise (natural logarithm)[https://en.wikipedia.org/wiki/Natural_logarithm).
+> Computes an element-wise [natural logarithm](https://en.wikipedia.org/wiki/Natural_logarithm).
 
 The [natural logarithm](https://en.wikipedia.org/wiki/Natural_logarithm) is defined for any positive real number as
 
 <div class="equation" align="center" data-raw-text="\quad \log \left( x \right) = y \quad \text{s.t.} \quad e^y = x" data-equation="eq:natural_logarithm">
-	<img src="" alt="Equation for the natural logarithm.">
+	<img src="https://cdn.rawgit.com/compute-io/log/c732d977e749c3b2f625351eb729fde11d8dca4e/docs/img/eqn.svg" alt="Equation for the natural logarithm.">
 	<br>
 </div>
 
@@ -195,7 +195,7 @@ bool = ( mat === out );
 
 ## Notes
 
-*	If an element is __not__ a numeric value, the evaluated principal [square root](https://en.wikipedia.org/wiki/Square_root) is `NaN`.
+*	If an element is __not__ a numeric value, the evaluated [natural logarithm](https://en.wikipedia.org/wiki/Natural_logarithm) is `NaN`.
 
 	``` javascript
 	var data, out;
