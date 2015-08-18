@@ -24,7 +24,7 @@ describe( 'deepset ln', function tests() {
 		expect( ln ).to.be.a( 'function' );
 	});
 
-	it( 'should compute the principal square root and deep set', function test() {
+	it( 'should compute the natural logarithm and deep set', function test() {
 		var data, expected;
 
 		data = [
