@@ -168,11 +168,11 @@ out = ln( data, {
 bool = ( data === out );
 // returns true
 
-data = new Int16Array( 6 );
+data = new Float64Array( 6 );
 for ( i = 0; i < 6; i++ ) {
 	data[ i ] = i;
 }
-mat = matrix( data, [3,2], 'int16' );
+mat = matrix( data, [3,2], 'float64' );
 /*
 	[  0  1
 	   2  3
