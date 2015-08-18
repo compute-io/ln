@@ -6,12 +6,12 @@ Natural Logarithm
 
 The [natural logarithm](https://en.wikipedia.org/wiki/Natural_logarithm) is defined for any positive real number as
 
-<div class="equation" align="center" data-raw-text="\quad \log \left( x \right) = y \quad \text{s.t.} \quad e^y = x" data-equation="eq:natural_logarithm">
-	<img src="https://cdn.rawgit.com/compute-io/log/c732d977e749c3b2f625351eb729fde11d8dca4e/docs/img/eqn.svg" alt="Equation for the natural logarithm.">
+<div class="equation" align="center" data-raw-text="\quad \ln \left( x \right) = y \quad \text{s.t.} \quad e^y = x" data-equation="eq:natural_logarithm">
+	<img src="https://cdn.rawgit.com/compute-io/ln/baeb2ee1c23a5da7c050368b6ab5db41ed47bc9c/docs/img/eqn.svg" alt="Equation for the natural logarithm.">
 	<br>
 </div>
 
-In JavaScript, `log(0) = -Infinity`. For negative numbers, the [natural logarithm](https://en.wikipedia.org/wiki/Square_root) is __not__ defined.
+In JavaScript, `log(0) = -Infinity`. For negative numbers, the [natural logarithm](https://en.wikipedia.org/wiki/Natural_logarithm) is __not__ defined.
 
 
 
