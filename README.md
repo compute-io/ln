@@ -1,6 +1,6 @@
 Natural Logarithm
 ===
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependencies][dependencies-image]][dependencies-url]
 
 > Computes an element-wise [natural logarithm](https://en.wikipedia.org/wiki/Natural_logarithm).
 
@@ -18,7 +18,7 @@ In JavaScript, `log(0) = -Infinity`. For negative numbers, the [natural logarith
 ## Installation
 
 ``` bash
-$ npm install compute-log
+$ npm install compute-ln
 ```
 
 For use in the browser, use [browserify](https://github.com/substack/node-browserify).
@@ -27,10 +27,10 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 ## Usage
 
 ``` javascript
-var log = require( 'compute-log' );
+var ln = require( 'compute-ln' );
 ```
 
-#### log( x[, opts] )
+#### ln( x[, opts] )
 
 Computes an element-wise [natural logarithm](https://en.wikipedia.org/wiki/Natural_logarithm). `x` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix).
 
@@ -41,18 +41,18 @@ var matrix = require( 'dstructs-matrix' ),
 	out,
 	i;
 
-out = log( Math.pow( Math.E, 3 ) );
+out = ln( Math.pow( Math.E, 3 ) );
 // returns 3
 
-out = log( -9 );
+out = ln( -9 );
 // returns NaN
 
 data = [ 3, 7, 9 ];
-out = log( data );
+out = ln( data );
 // returns [ ~1.0986, ~1.7918 , ~2.1972 ]
 
 data = new Int8Array( data );
-out = log( data );
+out = ln( data );
 // returns Float64Array( [~1.0986,~1.7918 ,~2.1972] )
 
 data = new Int16Array( 6 );
@@ -66,7 +66,7 @@ mat = matrix( data, [3,2], 'int16' );
 	   4  5 ]
 */
 
-out = log( mat );
+out = ln( mat );
 /*
 	[ -Infinity 0
 	  0.6931    1.0986
@@ -97,7 +97,7 @@ function getValue( d, i ) {
 	return d[ 1 ];
 }
 
-var out = log( data, {
+var out = ln( data, {
 	'accessor': getValue
 });
 // returns [ 4, 6, 15, 10, 25 ]
@@ -115,7 +115,7 @@ var data = [
 ];
 
 
-var out = log( data, 'x|1', '|' );
+var out = ln( data, 'x|1', '|' );
 /*
 	[
 		{'x':[0,4]},
@@ -137,13 +137,13 @@ var data, out;
 
 data = new Int8Array( [3,7,9] );
 
-out = log( data, {
+out = ln( data, {
 	'dtype': 'int32'
 });
 // returns Int32Array( [1,1,2 ] )
 
 // Works for plain arrays, as well...
-out = log( [ 3, 7, 9 ], {
+out = ln( [ 3, 7, 9 ], {
 	'dtype': 'uint8'
 });
 // returns Uint8Array( [1,1,2] )
@@ -160,7 +160,7 @@ var data,
 
 data = [ 3, 7, 9 ];
 
-out = log( data, {
+out = ln( data, {
 	'copy': false
 });
 // returns [ ~1.0986, ~1.7918 , ~2.1972 ]
@@ -179,7 +179,7 @@ mat = matrix( data, [3,2], 'int16' );
 	   4  5 ]
 */
 
-out = log( mat, {
+out = ln( mat, {
 	'copy': false
 });
 /*
@@ -200,16 +200,16 @@ bool = ( mat === out );
 	``` javascript
 	var data, out;
 
-	out = log( null );
+	out = ln( null );
 	// returns NaN
 
-	out = log( true );
+	out = ln( true );
 	// returns NaN
 
-	out = log( {'a':'b'} );
+	out = ln( {'a':'b'} );
 	// returns NaN
 
-	out = log( [ true, null, [] ] );
+	out = ln( [ true, null, [] ] );
 	// returns [ NaN, NaN, NaN ]
 
 	function getValue( d, i ) {
@@ -222,12 +222,12 @@ bool = ( mat === out );
 		{'x':null}
 	];
 
-	out = log( data, {
+	out = ln( data, {
 		'accessor': getValue
 	});
 	// returns [ NaN, NaN, NaN, NaN ]
 
-	out = log( data, {
+	out = ln( data, {
 		'path': 'x'
 	});
 	/*
@@ -243,7 +243,7 @@ bool = ( mat === out );
 *	Be careful when providing a data structure which contains non-numeric elements and specifying an `integer` output data type, as `NaN` values are cast to `0`.
 
 	``` javascript
-	var out = log( [ true, null, [] ], {
+	var out = ln( [ true, null, [] ], {
 		'dtype': 'int8'
 	});
 	// returns Int8Array( [0,0,0] );
@@ -254,7 +254,7 @@ bool = ( mat === out );
 
 ``` javascript
 var matrix = require( 'dstructs-matrix' ),
-	log = require( 'compute-log' );
+	ln = require( 'compute-ln' );
 
 var data,
 	mat,
@@ -267,7 +267,7 @@ data = new Array( 10 );
 for ( i = 0; i < data.length; i++ ) {
 	data[ i ] = Math.round( Math.random()*1000 );
 }
-out = log( data );
+out = ln( data );
 
 // Object arrays (accessors)...
 function getValue( d ) {
@@ -278,7 +278,7 @@ for ( i = 0; i < data.length; i++ ) {
 		'x': data[ i ]
 	};
 }
-out = log( data, {
+out = ln( data, {
 	'accessor': getValue
 });
 
@@ -288,7 +288,7 @@ for ( i = 0; i < data.length; i++ ) {
 		'x': [ i, data[ i ].x ]
 	};
 }
-out = log( data, {
+out = ln( data, {
 	'path': 'x/1',
 	'sep': '/'
 });
@@ -298,14 +298,14 @@ data = new Int32Array( 10 );
 for ( i = 0; i < data.length; i++ ) {
 	data[ i ] = Math.random() * 100;
 }
-out = log( data );
+out = ln( data );
 
 // Matrices...
 mat = matrix( data, [5,2], 'int32' );
-out = log( mat );
+out = ln( mat );
 
 // Matrices (custom output data type)...
-out = log( mat, {
+out = ln( mat, {
 	'dtype': 'uint8'
 });
 ```
@@ -357,20 +357,20 @@ $ make view-cov
 Copyright &copy; 2014-2015. The [Compute.io](https://github.com/compute-io) Authors.
 
 
-[npm-image]: http://img.shields.io/npm/v/compute-log.svg
-[npm-url]: https://npmjs.org/package/compute-log
+[npm-image]: http://img.shields.io/npm/v/compute-ln.svg
+[npm-url]: https://npmjs.org/package/compute-ln
 
-[travis-image]: http://img.shields.io/travis/compute-io/log/master.svg
-[travis-url]: https://travis-ci.org/compute-io/log
+[travis-image]: http://img.shields.io/travis/compute-io/ln/master.svg
+[travis-url]: https://travis-ci.org/compute-io/ln
 
-[coveralls-image]: https://img.shields.io/coveralls/compute-io/log/master.svg
-[coveralls-url]: https://coveralls.io/r/compute-io/log?branch=master
+[codecov-image]: https://img.shields.io/codecov/c/github/compute-io/ln/master.svg
+[codecov-url]: https://codecov.io/github/compute-io/ln?branch=master
 
-[dependencies-image]: http://img.shields.io/david/compute-io/log.svg
-[dependencies-url]: https://david-dm.org/compute-io/log
+[dependencies-image]: http://img.shields.io/david/compute-io/ln.svg
+[dependencies-url]: https://david-dm.org/compute-io/ln
 
-[dev-dependencies-image]: http://img.shields.io/david/dev/compute-io/log.svg
-[dev-dependencies-url]: https://david-dm.org/dev/compute-io/log
+[dev-dependencies-image]: http://img.shields.io/david/dev/compute-io/ln.svg
+[dev-dependencies-url]: https://david-dm.org/dev/compute-io/ln
 
-[github-issues-image]: http://img.shields.io/github/issues/compute-io/log.svg
-[github-issues-url]: https://github.com/compute-io/log/issues
+[github-issues-image]: http://img.shields.io/github/issues/compute-io/ln.svg
+[github-issues-url]: https://github.com/compute-io/ln/issues
