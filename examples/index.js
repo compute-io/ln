@@ -16,7 +16,7 @@ for ( i = 0; i < data.length; i++ ) {
 	data[ i ] = Math.round( Math.random()*1000 );
 }
 out = ln( data );
-console.ln( 'Arrays: %s\n', out );
+console.log( 'Arrays: %s\n', out );
 
 
 // ----
@@ -32,7 +32,7 @@ for ( i = 0; i < data.length; i++ ) {
 out = ln( data, {
 	'accessor': getValue
 });
-console.ln( 'Accessors: %s\n', out );
+console.log( 'Accessors: %s\n', out );
 
 
 // ----
@@ -46,9 +46,9 @@ out = ln( data, {
 	'path': 'x/1',
 	'sep': '/'
 });
-console.ln( 'Deepset:');
+console.log( 'Deepset:');
 console.dir( out );
-console.ln( '\n' );
+console.log( '\n' );
 
 
 // ----
@@ -65,14 +65,14 @@ for ( i = 0; i < data.length; i++ ) {
 		out += ',';
 	}
 }
-console.ln( 'Typed arrays: %s\n', out );
+console.log( 'Typed arrays: %s\n', out );
 
 
 // ----
 // Matrices...
 mat = matrix( data, [5,2], 'int32' );
 out = ln( mat );
-console.ln( 'Matrix: %s\n', out.toString() );
+console.log( 'Matrix: %s\n', out.toString() );
 
 
 // ----
@@ -80,4 +80,4 @@ console.ln( 'Matrix: %s\n', out.toString() );
 out = ln( mat, {
 	'dtype': 'uint8'
 });
-console.ln( 'Matrix (%s): %s\n', out.dtype, out.toString() );
+console.log( 'Matrix (%s): %s\n', out.dtype, out.toString() );
