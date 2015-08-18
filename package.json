@@ -1,5 +1,5 @@
 {
-  "name": "compute-log",
+  "name": "compute-ln",
   "version": "0.0.0",
   "description": "Computes an element-wise natural logarithm (base e).",
   "author": {
@@ -20,7 +20,7 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/compute-io/sqrt.git"
+    "url": "git://github.com/compute-io/ln.git"
   },
   "keywords": [
     "compute.io",
@@ -33,7 +33,7 @@
     "logarithm",
     "natural logarithm",
     "element-wise",
-    "log",
+    "ln",
     "accessor",
     "deep",
     "set",
@@ -45,7 +45,7 @@
     "deepset"
   ],
   "bugs": {
-    "url": "https://github.com/compute-io/sqrt/issues"
+    "url": "https://github.com/compute-io/ln/issues"
   },
   "dependencies": {
     "compute-array-constructors": "^1.0.0",
@@ -64,7 +64,7 @@
   },
   "devDependencies": {
     "chai": "3.x.x",
-    "coveralls": "^2.11.1",
+    "codecov.io": "^0.1.5",
     "istanbul": "^0.3.0",
     "jshint": "2.x.x",
     "jshint-stylish": "2.x.x",

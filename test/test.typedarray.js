@@ -7,7 +7,7 @@ var // Expectation library:
 	chai = require( 'chai' ),
 
 	// Module to be tested:
-	log = require( './../lib/array.js' );
+	ln = require( './../lib/array.js' );
 
 
 // VARIABLES //
@@ -18,10 +18,10 @@ var expect = chai.expect,
 
 // TESTS //
 
-describe( 'typed-array log', function tests() {
+describe( 'typed-array ln', function tests() {
 
 	it( 'should export a function', function test() {
-		expect( log ).to.be.a( 'function' );
+		expect( ln ).to.be.a( 'function' );
 	});
 
 	it( 'should compute the natural logarithm', function test() {
@@ -37,14 +37,14 @@ describe( 'typed-array log', function tests() {
 		] );
 		actual = new Float32Array( data.length );
 
-		actual = log( actual, data );
+		actual = ln( actual, data );
 		expected = new Float32Array( [ 2, 0, 3, 10, 9, 4 ] );
 
 		assert.deepEqual( actual, expected );
 	});
 
 	it( 'should return an empty array if provided an empty array', function test() {
-		assert.deepEqual( log( new Int8Array(), new Int8Array() ), new Int8Array() );
+		assert.deepEqual( ln( new Int8Array(), new Int8Array() ), new Int8Array() );
 	});
 
 });

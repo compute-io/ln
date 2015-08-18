@@ -13,7 +13,7 @@ var // Expectation library:
 	isnan = require( 'validate.io-nan' ),
 
 	// Module to be tested:
-	log = require( './../lib' );
+	ln = require( './../lib' );
 
 
 // VARIABLES //
@@ -24,10 +24,10 @@ var expect = chai.expect,
 
 // TESTS //
 
-describe( 'compute-log', function tests() {
+describe( 'compute-ln', function tests() {
 
 	it( 'should export a function', function test() {
-		expect( log ).to.be.a( 'function' );
+		expect( ln ).to.be.a( 'function' );
 	});
 
 	it( 'should throw an error if provided an invalid option', function test() {
@@ -47,7 +47,7 @@ describe( 'compute-log', function tests() {
 		}
 		function badValue( value ) {
 			return function() {
-				log( [1,2,3], {
+				ln( [1,2,3], {
 					'accessor': value
 				});
 			};
@@ -65,7 +65,7 @@ describe( 'compute-log', function tests() {
 		}
 		function badValue( value ) {
 			return function() {
-				log( [1,2,3], {
+				ln( [1,2,3], {
 					'dtype': value
 				});
 			};
@@ -83,7 +83,7 @@ describe( 'compute-log', function tests() {
 		}
 		function badValue( value ) {
 			return function() {
-				log( new Int8Array([1,2,3]), {
+				ln( new Int8Array([1,2,3]), {
 					'dtype': value
 				});
 			};
@@ -101,7 +101,7 @@ describe( 'compute-log', function tests() {
 		}
 		function badValue( value ) {
 			return function() {
-				log( matrix( [2,2] ), {
+				ln( matrix( [2,2] ), {
 					'dtype': value
 				});
 			};
@@ -120,15 +120,15 @@ describe( 'compute-log', function tests() {
 		];
 
 		for ( var i = 0; i < values.length; i++ ) {
-			assert.isTrue( isnan( log( values[ i ] ) ) );
+			assert.isTrue( isnan( ln( values[ i ] ) ) );
 		}
 	});
 
 	it( 'should compute the natural logarithm when provided a number', function test() {
-		assert.strictEqual( log( 6 ), Math.log( 6 ) );
-		assert.strictEqual( log( 20 ), Math.log( 20 ) );
+		assert.strictEqual( ln( 6 ), Math.log( 6 ) );
+		assert.strictEqual( ln( 20 ), Math.log( 20 ) );
 
-		assert.isTrue( isnan( log( NaN ) ) );
+		assert.isTrue( isnan( ln( NaN ) ) );
 	});
 
 	it( 'should compute an element-wise natural logarithm when provided a plain array', function test() {
@@ -144,12 +144,12 @@ describe( 'compute-log', function tests() {
 		];
 		expected = [ 4, 6, 9, 15, 10, 25 ];
 
-		actual = log( data );
+		actual = ln( data );
 		assert.notEqual( actual, data );
 		assert.deepEqual( actual, expected );
 
 		// Mutate...
-		actual = log( data, {
+		actual = ln( data, {
 			'copy': false
 		});
 		assert.strictEqual( actual, data );
@@ -169,12 +169,12 @@ describe( 'compute-log', function tests() {
 		] );
 		expected = new Float64Array( [ 4, 6, 9, 15, 10, 25 ] );
 
-		actual = log( data );
+		actual = ln( data );
 		assert.notEqual( actual, data );
 		assert.deepEqual( actual, expected );
 
 		// Mutate:
-		actual = log( data, {
+		actual = ln( data, {
 			'copy': false
 		});
 		expected = new Float64Array( [ 4, 6, 9, 15, 10, 25 ] );
@@ -195,7 +195,7 @@ describe( 'compute-log', function tests() {
 		];
 		expected = new Int8Array( [ 4, 6, 9, 15, 10, 25 ] );
 
-		actual = log( data, {
+		actual = ln( data, {
 			'dtype': 'int8'
 		});
 		assert.notEqual( actual, data );
@@ -215,14 +215,14 @@ describe( 'compute-log', function tests() {
 		];
 		expected = [ 4, 6, 15, 10, 25 ];
 
-		actual = log( data, {
+		actual = ln( data, {
 			'accessor': getValue
 		});
 		assert.notEqual( actual, data );
 		assert.deepEqual( actual, expected );
 
 		// Mutate:
-		actual = log( data, {
+		actual = ln( data, {
 			'accessor': getValue,
 			'copy': false
 		});
@@ -251,7 +251,7 @@ describe( 'compute-log', function tests() {
 			{'x':[3,10]},
 			{'x':[4,25]}
 		];
-		actual = log( data, {
+		actual = ln( data, {
 
 			'path': 'x.1'
 		});
@@ -267,7 +267,7 @@ describe( 'compute-log', function tests() {
 			{'x':[4,Math.pow( Math.E, 25 )]}
 		];
 
-		actual = log( data, {
+		actual = ln( data, {
 			'path': 'x/1',
 			'sep': '/'
 		});
@@ -292,12 +292,12 @@ describe( 'compute-log', function tests() {
 			d3[ i ] = Math.log( i );
 		}
 		mat = matrix( d1, [5,5], 'float64' );
-		out = log( mat );
+		out = ln( mat );
 
 		assert.deepEqual( out.data, d2 );
 
 		// Mutate...
-		out = log( mat, {
+		out = ln( mat, {
 			'copy': false
 		});
 		assert.strictEqual( mat, out );
@@ -318,7 +318,7 @@ describe( 'compute-log', function tests() {
 			d2[ i ] = Math.floor( Math.log( i ) );
 		}
 		mat = matrix( d1, [5,5], 'float32' );
-		out = log( mat, {
+		out = ln( mat, {
 			'dtype': 'int32'
 		});
 
@@ -327,9 +327,9 @@ describe( 'compute-log', function tests() {
 	});
 
 	it( 'should return an empty data structure if provided an empty data structure', function test() {
-		assert.deepEqual( log( [] ), [] );
-		assert.deepEqual( log( matrix( [0,0] ) ).data, new Float64Array() );
-		assert.deepEqual( log( new Int8Array() ), new Float64Array() );
+		assert.deepEqual( ln( [] ), [] );
+		assert.deepEqual( ln( matrix( [0,0] ) ).data, new Float64Array() );
+		assert.deepEqual( ln( new Int8Array() ), new Float64Array() );
 	});
 
 });

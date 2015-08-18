@@ -1,7 +1,7 @@
 'use strict';
 
 var matrix = require( 'dstructs-matrix' ),
-	log = require( './../lib' );
+	ln = require( './../lib' );
 
 var data,
 	mat,
@@ -15,8 +15,8 @@ data = new Array( 10 );
 for ( i = 0; i < data.length; i++ ) {
 	data[ i ] = Math.round( Math.random()*1000 );
 }
-out = log( data );
-console.log( 'Arrays: %s\n', out );
+out = ln( data );
+console.ln( 'Arrays: %s\n', out );
 
 
 // ----
@@ -29,10 +29,10 @@ for ( i = 0; i < data.length; i++ ) {
 		'x': data[ i ]
 	};
 }
-out = log( data, {
+out = ln( data, {
 	'accessor': getValue
 });
-console.log( 'Accessors: %s\n', out );
+console.ln( 'Accessors: %s\n', out );
 
 
 // ----
@@ -42,13 +42,13 @@ for ( i = 0; i < data.length; i++ ) {
 		'x': [ i, data[ i ].x ]
 	};
 }
-out = log( data, {
+out = ln( data, {
 	'path': 'x/1',
 	'sep': '/'
 });
-console.log( 'Deepset:');
+console.ln( 'Deepset:');
 console.dir( out );
-console.log( '\n' );
+console.ln( '\n' );
 
 
 // ----
@@ -57,7 +57,7 @@ data = new Int32Array( 10 );
 for ( i = 0; i < data.length; i++ ) {
 	data[ i ] = Math.random() * 100;
 }
-tmp = log( data );
+tmp = ln( data );
 out = '';
 for ( i = 0; i < data.length; i++ ) {
 	out += tmp[ i ];
@@ -65,19 +65,19 @@ for ( i = 0; i < data.length; i++ ) {
 		out += ',';
 	}
 }
-console.log( 'Typed arrays: %s\n', out );
+console.ln( 'Typed arrays: %s\n', out );
 
 
 // ----
 // Matrices...
 mat = matrix( data, [5,2], 'int32' );
-out = log( mat );
-console.log( 'Matrix: %s\n', out.toString() );
+out = ln( mat );
+console.ln( 'Matrix: %s\n', out.toString() );
 
 
 // ----
 // Matrices (custom output data type)...
-out = log( mat, {
+out = ln( mat, {
 	'dtype': 'uint8'
 });
-console.log( 'Matrix (%s): %s\n', out.dtype, out.toString() );
+console.ln( 'Matrix (%s): %s\n', out.dtype, out.toString() );

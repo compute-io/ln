@@ -7,7 +7,7 @@ var // Expectation library:
 	chai = require( 'chai' ),
 
 	// Module to be tested:
-	log = require( './../lib/accessor.js' );
+	ln = require( './../lib/accessor.js' );
 
 
 // VARIABLES //
@@ -18,10 +18,10 @@ var expect = chai.expect,
 
 // TESTS //
 
-describe( 'accessor log', function tests() {
+describe( 'accessor ln', function tests() {
 
 	it( 'should export a function', function test() {
-		expect( log ).to.be.a( 'function' );
+		expect( ln ).to.be.a( 'function' );
 	});
 
 	it( 'should compute the natural logarithm using an accessor', function test() {
@@ -37,7 +37,7 @@ describe( 'accessor log', function tests() {
 		];
 		actual = new Array( data.length );
 
-		actual = log( actual, data, getValue );
+		actual = ln( actual, data, getValue );
 		expected = [ 4, 6, 9, 15, 10, 25 ];
 
 		assert.deepEqual( actual, expected );
@@ -48,7 +48,7 @@ describe( 'accessor log', function tests() {
 	});
 
 	it( 'should return an empty array if provided an empty array', function test() {
-		assert.deepEqual( log( [], [], getValue ), [] );
+		assert.deepEqual( ln( [], [], getValue ), [] );
 		function getValue( d ) {
 			return d.x;
 		}
@@ -64,7 +64,7 @@ describe( 'accessor log', function tests() {
 			{'x':{}}
 		];
 		actual = new Array( data.length );
-		actual = log( actual, data, getValue );
+		actual = ln( actual, data, getValue );
 
 		expected = [ NaN, NaN, NaN, NaN ];
 

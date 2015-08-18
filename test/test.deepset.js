@@ -7,7 +7,7 @@ var // Expectation library:
 	chai = require( 'chai' ),
 
 	// Module to be tested:
-	log = require( './../lib/deepset.js' );
+	ln = require( './../lib/deepset.js' );
 
 
 // VARIABLES //
@@ -18,10 +18,10 @@ var expect = chai.expect,
 
 // TESTS //
 
-describe( 'deepset log', function tests() {
+describe( 'deepset ln', function tests() {
 
 	it( 'should export a function', function test() {
-		expect( log ).to.be.a( 'function' );
+		expect( ln ).to.be.a( 'function' );
 	});
 
 	it( 'should compute the principal square root and deep set', function test() {
@@ -36,7 +36,7 @@ describe( 'deepset log', function tests() {
 			{'x': Math.pow( Math.E, 25 ) }
 		];
 
-		data = log( data, 'x' );
+		data = ln( data, 'x' );
 		expected = [
 			{'x':4},
 			{'x':6},
@@ -58,7 +58,7 @@ describe( 'deepset log', function tests() {
 			{'x':[9,Math.pow( Math.E, 25 )]}
 		];
 
-		data = log( data, 'x/1', '/' );
+		data = ln( data, 'x/1', '/' );
 		expected = [
 			{'x':[9,4]},
 			{'x':[9,6]},
@@ -72,8 +72,8 @@ describe( 'deepset log', function tests() {
 	});
 
 	it( 'should return an empty array if provided an empty array', function test() {
-		assert.deepEqual( log( [], 'x' ), [] );
-		assert.deepEqual( log( [], 'x', '/' ), [] );
+		assert.deepEqual( ln( [], 'x' ), [] );
+		assert.deepEqual( ln( [], 'x', '/' ), [] );
 	});
 
 	it( 'should handle non-numeric values by setting the element to NaN', function test() {
@@ -85,7 +85,7 @@ describe( 'deepset log', function tests() {
 			{'x':[]},
 			{'x':{}}
 		];
-		actual = log( data, 'x' );
+		actual = ln( data, 'x' );
 
 		expected = [
 			{'x':NaN},

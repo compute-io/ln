@@ -8,5 +8,5 @@ node_js:
 before_install:
   - npm update -g npm
 after_script:
-  - npm run coveralls
+  - npm run codecov
 

@@ -10,7 +10,7 @@ var // Expectation library:
 	matrix = require( 'dstructs-matrix' ),
 
 	// Module to be tested:
-	log = require( './../lib/matrix.js' );
+	ln = require( './../lib/matrix.js' );
 
 
 // VARIABLES //
@@ -21,7 +21,7 @@ var expect = chai.expect,
 
 // TESTS //
 
-describe( 'matrix log', function tests() {
+describe( 'matrix ln', function tests() {
 
 	var out,
 		mat,
@@ -42,13 +42,13 @@ describe( 'matrix log', function tests() {
 	});
 
 	it( 'should export a function', function test() {
-		expect( log ).to.be.a( 'function' );
+		expect( ln ).to.be.a( 'function' );
 	});
 
 	it( 'should throw an error if provided unequal length matrices', function test() {
 		expect( badValues ).to.throw( Error );
 		function badValues() {
-			log( matrix( [10,10] ), mat );
+			ln( matrix( [10,10] ), mat );
 		}
 	});
 
@@ -56,7 +56,7 @@ describe( 'matrix log', function tests() {
 		var actual;
 
 		actual = matrix( [5,5], 'int16' );
-		actual = log( actual, mat );
+		actual = ln( actual, mat );
 
 		assert.deepEqual( actual.data, out.data );
 	});
@@ -68,13 +68,13 @@ describe( 'matrix log', function tests() {
 		expected = matrix( [0,0] ).data;
 
 		mat = matrix( [0,10] );
-		assert.deepEqual( log( out, mat ).data, expected );
+		assert.deepEqual( ln( out, mat ).data, expected );
 
 		mat = matrix( [10,0] );
-		assert.deepEqual( log( out, mat ).data, expected );
+		assert.deepEqual( ln( out, mat ).data, expected );
 
 		mat = matrix( [0,0] );
-		assert.deepEqual( log( out, mat ).data, expected );
+		assert.deepEqual( ln( out, mat ).data, expected );
 	});
 
 });
