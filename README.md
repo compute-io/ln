@@ -68,9 +68,9 @@ mat = matrix( data, [3,2], 'int16' );
 
 out = ln( mat );
 /*
-	[ -Infinity 0
-	  0.6931    1.0986
-	  1.3863    1.6094 ]
+	[ -Infinity   0
+	  ~0.6931    ~1.0986
+	  ~1.3863    ~1.6094 ]
 */
 ```
 
@@ -115,7 +115,10 @@ var data = [
 ];
 
 
-var out = ln( data, 'x|1', '|' );
+var out = ln( data, {
+	'path': 'x|1',
+	'sep': '|'
+});
 /*
 	[
 		{'x':[0,4]},
@@ -183,9 +186,9 @@ out = ln( mat, {
 	'copy': false
 });
 /*
-	[ -Infinity 0
-	  0.6931    1.0986
-	  1.3863    1.6094 ]
+	[ -Infinity  ~0
+	  ~0.6931    ~1.0986
+	  ~1.3863    ~1.6094 ]
 */
 
 bool = ( mat === out );
